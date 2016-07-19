@@ -1,28 +1,35 @@
-package movies;
+package assign2;
 import java.io.Serializable;
 
- /**
-  * Class Movie
-  * @author Anastasia Wright
-  * @author Mark Gomez
-  *
-  */
-public class Movie implements Serializable
+/**
+ * Class Movie
+ * @author Anastasia Wright
+ * @author Mark Gomez
+ *
+ */
+public class Movie extends Item implements Serializable
 {
-	/**
-	 * 
-	 * @param title
-	 * @param sku
-	 * @param quantity
-	 * @param price 
-	 * for each movie
-	 */
-   public Movie(String title, int sku, int quantity, double price)
+	int upc; //added for assign2
+	
+   /**
+    *
+    * @param title
+    * @param sku
+    * @param quantity
+    * @param price
+    * for each movie
+    */
+   public Movie(String title, int sku, int quantity, double price, int upc)
    {
-      this.Title = title;
-      this.SKU = sku;
-      this.Quantity = quantity;
-      this.Price = price;
+      this.title = title;
+      this.sku = sku;
+      this.quantity = quantity;
+      this.price = price;
+      this.upc = upc;
+      
+      this.type = "Movie: ";
+      this.credit = 2.98;
+      this.commission = 0.12;
    }
    
    /**
@@ -33,19 +40,19 @@ public class Movie implements Serializable
    public String toStringSpecific()
    {
       return String.format("\nTitle:   " + Title + "\nSKU:   " + SKU + "\nQuantity:   " + Quantity
-                           + "\nPrice:  " + Price);
+                           + "\nPrice:  " + Price + "\nUPC:   " + upc);
    }
    
    /**
     * returns the SKU number of the desired movie
     * @return the SKU number of the wanted movie
     */
-	public int getSku(){
-		return SKU;
-	}
-	
-	String Title;
-	int SKU;
-	int Quantity;
-	double Price;
+   public int getSku(){
+      return SKU;
+   }
+   
+   String Title;
+   int SKU;
+   int Quantity;
+   double Price;
 }
